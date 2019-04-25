@@ -1,0 +1,43 @@
+{
+    "name": "viralsbackpack/backpackapi",
+    "description": "CRUD Api in Backpack",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "virals-manhhd",
+            "email": "manhhd@viralsoft.vn",
+            "homepage": "https://github.com/viralsoft"
+        }
+    ],
+    "homepage": "https://github.com/viralsbackpack/backpackapi",
+    "keywords": ["Laravel", "BackPackAPI"],
+    "require": {
+        "illuminate/support": "~5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3.0",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ViralsBackpack\\BackPackAPI\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ViralsBackpack\\BackPackAPI\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ViralsBackpack\\BackPackAPI\\BackPackAPIServiceProvider"
+            ],
+            "aliases": {
+                "BackPackAPI": "ViralsBackpack\\BackPackAPI\\Facades\\BackPackAPI"
+            }
+        }
+    }
+}

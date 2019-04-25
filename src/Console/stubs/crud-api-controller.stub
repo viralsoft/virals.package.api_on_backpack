@@ -1,0 +1,90 @@
+<?php
+
+namespace DummyNamespace;
+
+use ViralsBackpack\BackPackAPI\Http\Controllers\CrudAPIController;
+
+// VALIDATION: change the requests to match your own file names if you need form validation
+use App\Http\Requests\DummyClassRequest as StoreRequest;
+use App\Http\Requests\DummyClassRequest as UpdateRequest;
+use ViralsBackpack\BackPackAPI\CrudPanelAPI;
+use ViralsBackpack\BackPackAPI\Http\Resources\ModelResourceCollection;
+use Illuminate\Http\Request;
+
+/**
+ * Class DummyClassCrudAPIController
+ * @package App\Http\Controllers\Api
+ * @property-read CrudPanelAPI $crud
+ */
+class DummyClassCrudAPIController extends CrudAPIController
+{
+    public function setup()
+    {
+        /*
+        |--------------------------------------------------------------------------
+        | CrudPanel Basic Information
+        |--------------------------------------------------------------------------
+        */
+        $this->crud->setModel('App\Models\DummyClass');
+        $this->crud->setRoute(config('backpack.base.route_prefix_api') . '/dummy_class');
+        $this->crud->setEntityNameStrings('dummy_class', 'DummyTable');
+        $this->crud->setFromDb();
+
+        /*
+        |--------------------------------------------------------------------------
+        | CrudPanel Configuration
+        |--------------------------------------------------------------------------
+        */
+
+        // Add validate request to fields in DummyClassRequest
+        $this->setRequestStoreApi(StoreRequest::class);
+        $this->setRequestUpdateApi(UpdateRequest::class);
+
+        // Set up structure of data in response
+        $this->crud->setResponse([
+            //'id', 'name'  //fields of its model
+        ]);
+
+        // or custom its fields
+        //$this->crud->setResponse([
+            //'name' => function($entry) {
+            //    return $entry->name . '123';
+            //},
+            //'id' => function($entry) {
+            //    return $entry->id . '123';
+            //}
+        //]);
+
+        // Set up extra data, it can set in method of controller
+        $this->crud->setExtraData([
+            //'test' => 123
+        ]);
+
+        // Set up return list entries after delete, it can set in method of controller
+        $this->crud->setDeleteReturnList(true);
+    }
+
+    public function store(Request $request)
+    {
+        // Validate request
+        $result = $this->validateApi('create', $request);
+        if ($result['status'] !== 200) {
+            return (new ModelResourceCollection(collect([]), []))->setMessage($result['message'])->setStatus($result['status']);
+        }
+        // Store in db
+        $response = parent::storeCrud($request);
+        return $response;
+    }
+
+    public function update(Request $request)
+    {
+        // Validate request
+        $result = $this->validateApi('edit', $request);
+        if ($result['status'] !== 200) {
+            return (new ModelResourceCollection(collect([]), []))->setMessage($result['message'])->setStatus($result['status']);
+        }
+        // Update in db
+        $response = parent::updateCrud($request);
+        return $response;
+    }
+}
