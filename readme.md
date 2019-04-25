@@ -127,8 +127,8 @@ $this->crud->setStatus(123);
 | POST      | api/name        |crud-api.name.store | App\Http\Controllers\Api\NameCrudAPIController@store  |                       |                        |
 | POST      | api/name/search |crud-api.name.search| App\Http\Controllers\Api\TagCrudAPIController@search  | search[value]         |                        |
 | GET/HEAD  | api/name/{id}    |crud-api.name.show  | App\Http\Controllers\Api\NameCrudAPIController@show   | id                    |                        |
-| PUT/PATCH | api/name/{id}    |crud-api.tag.update | App\Http\Controllers\Api\NameCrudAPIController@update | id                    | _method = PUT ; id     |                    
-| DELETE    | api/name/{id}    |crud-api.tag.destroy| App\Http\Controllers\Api\NameCrudAPIController@destroy| id                    | _method = DELETE       |
+| PUT/PATCH | api/name/{id}    |crud-api.name.update | App\Http\Controllers\Api\NameCrudAPIController@update | id                    | _method = PUT ; id     |                    
+| DELETE    | api/name/{id}    |crud-api.name.destroy| App\Http\Controllers\Api\NameCrudAPIController@destroy| id                    | _method = DELETE       |
 
 ## Credits
 
