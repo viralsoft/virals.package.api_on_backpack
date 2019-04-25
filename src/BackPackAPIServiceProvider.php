@@ -2,6 +2,7 @@
 
 namespace ViralsBackpack\BackPackAPI;
 
+use ViralsBackpack\BackPackAPI\Console\Commands\CrudBackpackCommand;
 use Illuminate\Support\ServiceProvider;
 use ViralsBackpack\BackPackAPI\Console\Commands\AddCustomRouteContent;
 use ViralsBackpack\BackPackAPI\Console\Commands\CrudAPIControllerBackpackCommand;
@@ -58,7 +59,7 @@ class BackPackAPIServiceProvider extends ServiceProvider
     {
         return ['backpackapi'];
     }
-    
+
     /**
      * Console-specific booting.
      *
@@ -75,7 +76,8 @@ class BackPackAPIServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 CrudAPIControllerBackpackCommand::class,
-                AddCustomRouteContent::class
+                AddCustomRouteContent::class,
+                CrudBackpackCommand::class
             ]);
         }
 

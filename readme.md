@@ -21,13 +21,23 @@ composer require viralsbackpack/backpackapi
 
 **1. Command**
 
+*_Create controller and add route for api:*
+
+```bash
+
+php artisan backpack:crud-api name
+
+```
+This command will create NameAPICrudController in folder app/Http/Api and add route api route resource in routes/backpack/api.php
+
+or particular command
+
 *_Create controller:* 
 
 ```bash
 php artisan backpack:crud-api-controller Name
 
 ```
-This command will create NameAPICrudController in folder app/Http/Api. Controller api must extends ViralsBackpack\BackPackAPI\Http\Controllers\CrudAPIController;
 
 *_Add route for api:*
 
@@ -36,7 +46,6 @@ This command will create NameAPICrudController in folder app/Http/Api. Controlle
 php artisan backpack-api:add-custom-route "BackPackAPI::resource('name', 'NameCrudAPIController');"
 
 ```
-This command will add route api route resource in routes/backpack/api.php
 
 **2. Setup api**
 
