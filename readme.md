@@ -115,7 +115,7 @@ $this->crud->setStatus(123);
 | Method    | URI             | Name               | Action                                                | Parameter obligatory  |Form data obligatory    |
 | --------- | --------------- |------------------- |------------------------------------------------------ |--------------------   |------------------------|
 | GET/HEAD  | api/name        |crud-api.name.index | App\Http\Controllers\Api\NameCrudAPIController@index  |                       |                        |
-| POST      | api/name        |crud-api.name.store | App\Http\Controllers\Api\NameCrudAPIController@store  | id                    |                        |
+| POST      | api/name        |crud-api.name.store | App\Http\Controllers\Api\NameCrudAPIController@store  |                       |                        |
 | POST      | api/name/search |crud-api.name.search| App\Http\Controllers\Api\TagCrudAPIController@search  | search[value]         |                        |
 | GET/HEAD  | api/tag/{id}    |crud-api.name.show  | App\Http\Controllers\Api\NameCrudAPIController@show   | id                    |                        |
 | PUT/PATCH | api/tag/{id}    |crud-api.tag.update | App\Http\Controllers\Api\NameCrudAPIController@update | id                    | _method = PUT ; id     |                    
