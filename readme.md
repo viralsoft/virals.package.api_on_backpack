@@ -107,7 +107,7 @@ $this->crud->setMessage('message');
 ```php
 <?php
 
-$this->crud->setStatus('message');
+$this->crud->setStatus(123);
 
 ```
 
