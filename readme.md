@@ -75,7 +75,7 @@ $this->crud->setResponse([
 
 ```
 Output:
-![alt text](https://raw.githubusercontent.com/viralsoft/virals.package.import_excel/master/export.png)
+![alt text](https://raw.githubusercontent.com/viralsoft/virals.package.api_on_backpack/master/structure_data.png)
 
 *_Set up extra data*
 ```php
@@ -87,7 +87,7 @@ $this->crud->setExtraData([
 
 ```
 Output:
-![alt text](https://raw.githubusercontent.com/viralsoft/virals.package.import_excel/master/export.png)
+![alt text](https://raw.githubusercontent.com/viralsoft/virals.package.api_on_backpack/master/extra_data.png)
 
 *_Set up return list entries after delete:*
 ```php
